@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <!-- Sky Gradient -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7ea1be"/>
+      <stop offset="35%" stop-color="#b8ccd8"/>
+      <stop offset="70%" stop-color="#dce7ed"/>
+      <stop offset="100%" stop-color="#eaf1f5"/>
+    </linearGradient>
+
+    <!-- Mountain Gradient -->
+    <linearGradient id="mountainDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14361e"/>
+      <stop offset="50%" stop-color="#1c4828"/>
+      <stop offset="100%" stop-color="#245d34"/>
+    </linearGradient>
+
+    <linearGradient id="mountainMid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#235c32"/>
+      <stop offset="60%" stop-color="#2e733f"/>
+      <stop offset="100%" stop-color="#3c8a51"/>
+    </linearGradient>
+
+    <!-- Restaurant Wall & Floor -->
+    <linearGradient id="patioFloor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d6cebe"/>
+      <stop offset="100%" stop-color="#b8ae9c"/>
+    </linearGradient>
+
+    <linearGradient id="brickSidewalk" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c86955"/>
+      <stop offset="100%" stop-color="#a84e3a"/>
+    </linearGradient>
+
+    <!-- Asphalt Road -->
+    <linearGradient id="roadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a4f55"/>
+      <stop offset="100%" stop-color="#2d3238"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1600" height="900" fill="url(#skyGrad)"/>
+
+  <!-- Soft Clouds -->
+  <path d="M 0 120 Q 300 70 600 130 T 1200 90 T 1600 110 L 1600 300 L 0 300 Z" fill="#ffffff" opacity="0.35"/>
+  <path d="M 200 80 Q 500 40 850 90 T 1500 70 L 1600 200 L 0 200 Z" fill="#ffffff" opacity="0.25"/>
+
+  <!-- Majestic Green Mountain Behind Hon Cau Quan (Peak & Slopes) -->
+  <path d="M -50 480 Q 250 180 500 120 Q 800 60 1100 140 Q 1400 220 1650 460 L 1650 620 L -50 620 Z" fill="url(#mountainDark)"/>
+  <path d="M -50 490 Q 200 230 450 160 Q 750 110 1050 180 Q 1350 250 1650 510 L 1650 620 L -50 620 Z" fill="url(#mountainMid)" opacity="0.85"/>
+
+  <!-- Mountain Texture (Lush Tropical Canopy of Trees) -->
+  <g fill="#184123" opacity="0.5">
+    <!-- Rock Cliff Outcrop on Left Slope -->
+    <polygon points="120,290 170,250 210,280 230,340 180,360 130,330" fill="#69645d" opacity="0.75"/>
+    <polygon points="175,255 195,240 225,270 210,290" fill="#8c857b" opacity="0.6"/>
+    <!-- Tree Clusters -->
+    <circle cx="320" cy="220" r="35"/>
+    <circle cx="370" cy="210" r="45"/>
+    <circle cx="430" cy="240" r="40"/>
+    <circle cx="580" cy="180" r="50"/>
+    <circle cx="650" cy="160" r="55"/>
+    <circle cx="720" cy="170" r="60"/>
+    <circle cx="850" cy="190" r="65"/>
+    <circle cx="950" cy="220" r="55"/>
+    <circle cx="1080" cy="250" r="60"/>
+    <circle cx="1200" cy="290" r="65"/>
+    <circle cx="1320" cy="340" r="70"/>
+    <circle cx="1450" cy="390" r="75"/>
+  </g>
+
+  <!-- Mist / Fog near Mountain Peak -->
+  <path d="M 680 110 Q 820 90 980 120 Q 900 140 750 130 Z" fill="#ffffff" opacity="0.4" filter="blur(8px)"/>
+
+  <!-- Ground / Road / Sidewalk Base -->
+  <rect x="0" y="810" width="1600" height="90" fill="url(#roadGrad)"/>
+  <!-- Wet road reflection line -->
+  <rect x="0" y="860" width="1600" height="3" fill="#ffffff" opacity="0.25"/>
+
+  <!-- Red-brick Paved Sidewalk -->
+  <rect x="0" y="730" width="1600" height="80" fill="url(#brickSidewalk)"/>
+  <!-- Curb -->
+  <rect x="0" y="805" width="1600" height="6" fill="#878d94"/>
+
+  <!-- Restaurant Building Structure (White Single-story with Pavilion) -->
+  <rect x="100" y="520" width="1400" height="210" fill="#f8fafc"/>
+  
+  <!-- Back Wall Mural & Interior -->
+  <rect x="750" y="590" width="130" height="110" fill="#0284c7" opacity="0.8"/> <!-- Island Mural -->
+  <rect x="760" y="640" width="110" height="40" fill="#fef08a" opacity="0.6"/> <!-- Beach sand -->
+
+  <!-- Open Pavilion White Steel Pergola Frame -->
+  <g stroke="#e2e8f0" stroke-width="4">
+    <!-- Main Horizontal Beams -->
+    <line x1="580" y1="510" x2="1480" y2="510"/>
+    <line x1="580" y1="540" x2="1480" y2="540"/>
+    <line x1="580" y1="525" x2="1480" y2="525"/>
+    <!-- Truss Cross Bracing -->
+    <path d="M 580 540 L 610 510 L 640 540 L 670 510 L 700 540 L 730 510 L 760 540 L 790 510 L 820 540 L 850 510 L 880 540 L 910 510 L 940 540 L 970 510 L 1000 540 L 1030 510 L 1060 540 L 1090 510 L 1120 540 L 1150 510 L 1180 540 L 1210 510 L 1240 540 L 1270 510 L 1300 540 L 1330 510 L 1360 540 L 1390 510 L 1420 540 L 1450 510 L 1480 540" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+    <!-- Vertical Support Pillars -->
+    <line x1="600" y1="510" x2="600" y2="730" stroke="#ffffff" stroke-width="8"/>
+    <line x1="900" y1="510" x2="900" y2="730" stroke="#ffffff" stroke-width="8"/>
+    <line x1="1200" y1="510" x2="1200" y2="730" stroke="#ffffff" stroke-width="8"/>
+    <line x1="1470" y1="510" x2="1470" y2="730" stroke="#ffffff" stroke-width="8"/>
+  </g>
+
+  <!-- ICONIC ILLUMINATED ROOF SIGN: Hòn Cau Quán -->
+  <!-- Signboard support rack -->
+  <rect x="580" y="445" width="460" height="65" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+  <!-- Bright White / Amber Glowing Signage -->
+  <g id="hon-cau-sign">
+    <!-- Glow effect -->
+    <text x="800" y="495" font-family="'Brush Script MT', 'Dancing Script', 'Playfair Display', cursive, serif" font-size="62" font-weight="bold" font-style="italic" fill="#ffffff" text-anchor="middle" filter="drop-shadow(0 0 10px rgba(255,255,255,0.9))">
+      Hòn Cau Quán
+    </text>
+  </g>
+
+  <!-- Tagline on Front Wall: Hòn Cau Hải Sản Quán -->
+  <text x="700" y="620" font-family="sans-serif" font-size="14" font-weight="600" fill="#b45309" text-anchor="middle" opacity="0.9">
+    Hòn Cau - Hải Sản Tươi Sống
+  </text>
+
+  <!-- Outdoor Patio Dining Tables & Benches (Wooden Warm Brown) -->
+  <g fill="#92400e" stroke="#78350f" stroke-width="1.5">
+    <!-- Row 1: Tables -->
+    <rect x="620" y="680" width="65" height="20" rx="3" fill="#b45309"/>
+    <rect x="620" y="702" width="65" height="12" rx="2" fill="#78350f"/>
+    <!-- Row 2: Tables -->
+    <rect x="770" y="675" width="80" height="25" rx="3" fill="#b45309"/>
+    <rect x="770" y="702" width="80" height="14" rx="2" fill="#78350f"/>
+    <!-- Row 3: Tables -->
+    <rect x="940" y="675" width="80" height="25" rx="3" fill="#b45309"/>
+    <rect x="940" y="702" width="80" height="14" rx="2" fill="#78350f"/>
+    <!-- Row 4: Tables -->
+    <rect x="1100" y="675" width="70" height="25" rx="3" fill="#b45309"/>
+    <rect x="1100" y="702" width="70" height="14" rx="2" fill="#78350f"/>
+  </g>
+
+  <!-- Yellow Awning on Right Side (Counter) -->
+  <polygon points="1280,535 1500,535 1515,580 1270,580" fill="#f59e0b"/>
+  <polygon points="1280,535 1500,535 1500,545 1280,545" fill="#d97706"/>
+
+  <!-- Wooden Slat Fence Enclosure -->
+  <g stroke="#d97706" stroke-width="3" opacity="0.7">
+    <line x1="80" y1="670" x2="520" y2="670"/>
+    <line x1="80" y1="710" x2="520" y2="710"/>
+    <!-- Slats -->
+    <line x1="120" y1="665" x2="120" y2="725"/>
+    <line x1="160" y1="665" x2="160" y2="725"/>
+    <line x1="200" y1="665" x2="200" y2="725"/>
+    <line x1="240" y1="665" x2="240" y2="725"/>
+    <line x1="280" y1="665" x2="280" y2="725"/>
+    <line x1="320" y1="665" x2="320" y2="725"/>
+    <line x1="360" y1="665" x2="360" y2="725"/>
+    <line x1="400" y1="665" x2="400" y2="725"/>
+    <line x1="440" y1="665" x2="440" y2="725"/>
+    <line x1="480" y1="665" x2="480" y2="725"/>
+  </g>
+
+  <!-- White Flower Pots & Vibrant Green Bushes Along Front Perimeter -->
+  <g id="flower-pots">
+    <!-- Pot 1 -->
+    <rect x="90" y="720" width="30" height="25" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="105" cy="712" r="16" fill="#16a34a"/>
+    <!-- Pot 2 -->
+    <rect x="150" y="720" width="30" height="25" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="165" cy="712" r="16" fill="#15803d"/>
+    <!-- Pot 3 -->
+    <rect x="210" y="720" width="30" height="25" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="225" cy="712" r="16" fill="#16a34a"/>
+    <!-- Pot 4 -->
+    <rect x="270" y="720" width="30" height="25" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="285" cy="712" r="16" fill="#15803d"/>
+    <!-- Pot 5 -->
+    <rect x="330" y="720" width="30" height="25" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="345" cy="712" r="16" fill="#16a34a"/>
+    <!-- Pot 6 -->
+    <rect x="390" y="720" width="30" height="25" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="405" cy="712" r="16" fill="#15803d"/>
+    <!-- Pot 7 -->
+    <rect x="450" y="720" width="30" height="25" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="465" cy="712" r="16" fill="#16a34a"/>
+
+    <!-- Potted plants in the central entrance area -->
+    <rect x="520" y="718" width="36" height="32" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    <circle cx="538" cy="705" r="22" fill="#22c55e"/>
+    <circle cx="544" cy="698" r="16" fill="#16a34a"/>
+
+    <rect x="1080" y="718" width="36" height="32" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    <circle cx="1098" cy="705" r="22" fill="#22c55e"/>
+  </g>
+
+  <!-- Two Front Trees along the Sidewalk (Just like in the Photo) -->
+  <!-- Left Tree -->
+  <path d="M 220 810 Q 225 600 230 450" stroke="#78350f" stroke-width="7" fill="none"/>
+  <circle cx="230" cy="480" r="55" fill="#16a34a" opacity="0.9"/>
+  <circle cx="250" cy="460" r="45" fill="#22c55e" opacity="0.85"/>
+  <circle cx="210" cy="450" r="40" fill="#15803d" opacity="0.85"/>
+
+  <!-- Right Tree -->
+  <path d="M 1240 810 Q 1245 580 1250 420" stroke="#78350f" stroke-width="8" fill="none"/>
+  <circle cx="1250" cy="420" r="70" fill="#16a34a" opacity="0.9"/>
+  <circle cx="1280" cy="390" r="55" fill="#22c55e" opacity="0.85"/>
+  <circle cx="1220" cy="400" r="50" fill="#15803d" opacity="0.85"/>
+
+  <!-- White SUV parked on left -->
+  <g id="suv-car" transform="translate(10, 640)">
+    <rect x="0" y="40" width="80" height="45" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <polygon points="15,40 30,15 70,15 80,40" fill="#f1f5f9"/>
+    <circle cx="20" cy="85" r="12" fill="#1e293b"/>
+    <circle cx="70" cy="85" r="12" fill="#1e293b"/>
+  </g>
+
+  <!-- Blue Scooter parked on right -->
+  <g id="scooter" transform="translate(1410, 700)">
+    <circle cx="20" cy="40" r="10" fill="#0f172a"/>
+    <circle cx="60" cy="40" r="10" fill="#0f172a"/>
+    <path d="M 20 40 L 40 25 L 55 10 L 60 40" stroke="#0284c7" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <rect x="35" y="18" width="18" height="6" rx="2" fill="#0369a1"/>
+  </g>
+</svg>

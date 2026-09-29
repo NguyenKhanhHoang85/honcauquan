@@ -1,0 +1,6 @@
+{
+  "name": "Hòn Cau Quán - Quản Lý & Đặt Món",
+  "description": "Ứng dụng quản lý nhà hàng Hòn Cau quán: Đặt bàn, gọi món trực tuyến, thanh toán điện tử VietQR/MoMo và báo cáo doanh thu chi tiết theo ngày, tháng.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

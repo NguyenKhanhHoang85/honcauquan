@@ -1,0 +1,171 @@
+{
+  "entities": {
+    "MenuItem": {
+      "title": "MenuItem",
+      "description": "A food or drink item on the Hon Cau Quan menu",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 150 },
+        "category": { "type": "string", "maxLength": 64 },
+        "price": { "type": "number" },
+        "description": { "type": "string", "maxLength": 500 },
+        "imageUrl": { "type": "string", "maxLength": 1024 },
+        "isAvailable": { "type": "boolean" },
+        "isSpecial": { "type": "boolean" },
+        "unit": { "type": "string", "maxLength": 32 }
+      },
+      "required": ["id", "name", "category", "price", "isAvailable"]
+    },
+    "Table": {
+      "title": "Table",
+      "description": "A dining table in the restaurant",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 64 },
+        "area": { "type": "string", "maxLength": 64 },
+        "capacity": { "type": "number" },
+        "status": { "type": "string", "maxLength": 32 },
+        "currentOrderId": { "type": "string", "maxLength": 128 },
+        "occupiedSince": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "name", "area", "capacity", "status"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "An order placed for a table or takeaway",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "orderCode": { "type": "string", "maxLength": 32 },
+        "customerName": { "type": "string", "maxLength": 128 },
+        "customerPhone": { "type": "string", "maxLength": 32 },
+        "orderType": { "type": "string", "maxLength": 32 },
+        "tableId": { "type": "string", "maxLength": 128 },
+        "tableName": { "type": "string", "maxLength": 64 },
+        "items": { "type": "array" },
+        "totalAmount": { "type": "number" },
+        "discount": { "type": "number" },
+        "finalAmount": { "type": "number" },
+        "paymentMethod": { "type": "string", "maxLength": 32 },
+        "paymentStatus": { "type": "string", "maxLength": 32 },
+        "orderStatus": { "type": "string", "maxLength": 32 },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "completedAt": { "type": "string", "maxLength": 64 },
+        "note": { "type": "string", "maxLength": 500 }
+      },
+      "required": ["id", "orderCode", "orderType", "items", "totalAmount", "finalAmount", "paymentStatus", "orderStatus"]
+    },
+    "Reservation": {
+      "title": "Reservation",
+      "description": "A table reservation requested by customer or staff",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "customerName": { "type": "string", "maxLength": 128 },
+        "customerPhone": { "type": "string", "maxLength": 32 },
+        "guestCount": { "type": "number" },
+        "date": { "type": "string", "maxLength": 32 },
+        "time": { "type": "string", "maxLength": 32 },
+        "areaPreference": { "type": "string", "maxLength": 64 },
+        "note": { "type": "string", "maxLength": 500 },
+        "status": { "type": "string", "maxLength": 32 },
+        "tableId": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "customerName", "customerPhone", "guestCount", "date", "time", "status"]
+    },
+    "StaffAccount": {
+      "title": "StaffAccount",
+      "description": "Employee or manager account for restaurant operations",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "username": { "type": "string", "maxLength": 64 },
+        "fullName": { "type": "string", "maxLength": 128 },
+        "role": { "type": "string", "maxLength": 32 },
+        "pin": { "type": "string", "maxLength": 16 },
+        "password": { "type": "string", "maxLength": 128 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "avatar": { "type": "string", "maxLength": 512 },
+        "shift": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "username", "fullName", "role"]
+    },
+    "RestaurantSettings": {
+      "title": "RestaurantSettings",
+      "description": "General settings, branding, tax, and payment information for the restaurant",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 128 },
+        "slogan": { "type": "string", "maxLength": 256 },
+        "hotline": { "type": "string", "maxLength": 32 },
+        "address": { "type": "string", "maxLength": 256 },
+        "taxId": { "type": "string", "maxLength": 64 },
+        "wifiName": { "type": "string", "maxLength": 64 },
+        "wifiPass": { "type": "string", "maxLength": 64 },
+        "logoUrl": { "type": "string", "maxLength": 1024 },
+        "bankId": { "type": "string", "maxLength": 32 },
+        "bankName": { "type": "string", "maxLength": 64 },
+        "accountNo": { "type": "string", "maxLength": 64 },
+        "accountName": { "type": "string", "maxLength": 128 },
+        "defaultVatRate": { "type": "number" },
+        "isVatEnabled": { "type": "boolean" },
+        "defaultSurcharge": { "type": "number" },
+        "surchargeReason": { "type": "string", "maxLength": 128 },
+        "primaryColor": { "type": "string", "maxLength": 32 },
+        "headerBannerUrl": { "type": "string", "maxLength": 500000 },
+        "googleSheetsWebhookUrl": { "type": "string", "maxLength": 512 },
+        "autoSyncGoogleSheets": { "type": "boolean" },
+        "lastGoogleSheetsSync": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["name", "hotline", "address", "bankId", "accountNo", "accountName", "defaultVatRate", "isVatEnabled", "defaultSurcharge", "primaryColor", "autoSyncGoogleSheets"]
+    },
+    "StaffAuditLog": {
+      "title": "StaffAuditLog",
+      "description": "Audit record of operations performed by restaurant staff or managers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "timestamp": { "type": "string", "maxLength": 64 },
+        "staffName": { "type": "string", "maxLength": 128 },
+        "staffRole": { "type": "string", "maxLength": 32 },
+        "actionType": { "type": "string", "maxLength": 64 },
+        "details": { "type": "string", "maxLength": 1000 },
+        "targetId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "timestamp", "staffName", "staffRole", "actionType", "details"]
+    }
+  },
+  "firestore": {
+    "/menuItems/{itemId}": {
+      "schema": "MenuItem",
+      "description": "Menu items catalog for dishes and beverages"
+    },
+    "/tables/{tableId}": {
+      "schema": "Table",
+      "description": "Restaurant tables and seating areas"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer and staff dine-in / takeaway orders"
+    },
+    "/reservations/{reservationId}": {
+      "schema": "Reservation",
+      "description": "Advance table reservations"
+    },
+    "/staffAccounts/{accountId}": {
+      "schema": "StaffAccount",
+      "description": "Staff and manager user profiles and credentials"
+    },
+    "/restaurantSettings/{settingId}": {
+      "schema": "RestaurantSettings",
+      "description": "Restaurant configuration, receipt parameters, and payment QR"
+    },
+    "/auditLogs/{logId}": {
+      "schema": "StaffAuditLog",
+      "description": "Audit history and activity tracking for staff and manager actions"
+    }
+  }
+}

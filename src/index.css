@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    font-family: 'Inter', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+  body {
+    font-family: 'Inter', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6, .font-serif, .font-sans {
+    font-family: 'Inter', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif !important;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}
+
+/* Print specific styles for restaurant thermal receipts, kitchen tickets & reports */
+@media print {
+  @page {
+    margin: 2mm 0;
+    size: auto;
+  }
+
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Thermal receipt print */
+  body:has(#printable-receipt) * {
+    visibility: hidden;
+  }
+  body:has(#printable-receipt) #printable-receipt,
+  body:has(#printable-receipt) #printable-receipt * {
+    visibility: visible !important;
+  }
+  body:has(#printable-receipt) #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm;
+    margin: 0 auto;
+    padding: 6px;
+  }
+
+  /* Thermal kitchen ticket print */
+  body:has(#printable-kitchen-ticket) * {
+    visibility: hidden;
+  }
+  body:has(#printable-kitchen-ticket) #printable-kitchen-ticket,
+  body:has(#printable-kitchen-ticket) #printable-kitchen-ticket * {
+    visibility: visible !important;
+  }
+  body:has(#printable-kitchen-ticket) #printable-kitchen-ticket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm;
+    margin: 0 auto;
+    padding: 6px;
+  }
+
+  /* Standard page report print when no thermal modals open */
+  header,
+  footer,
+  .print\:hidden {
+    display: none !important;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  20%, 60% { transform: rotate(14deg); }
+  40%, 80% { transform: rotate(-14deg); }
+}
+
+.animate-wiggle {
+  animation: wiggle 0.8s ease-in-out infinite;
+}
+
+@keyframes bounceShort {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-bounce-short {
+  animation: bounceShort 1.5s ease-in-out infinite;
+}
+
