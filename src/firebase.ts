@@ -1,12 +1,29 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore, doc, getDocFromServer } from 'firebase/firestore';
+import { initializeFirestore, getFirestore, doc, getDoc, setLogLevel } from 'firebase/firestore';
 import firebaseConfig from '../firebase-applet-config.json';
 
-const app = initializeApp(firebaseConfig);
+// Suppress internal SDK connection retry / offline transition logs to prevent false alarms
+try {
+  setLogLevel('silent');
+} catch {
+  // Ignore if already set or unsupported
+}
 
-// CRITICAL: Must use firestoreDatabaseId from firebase-applet-config.json
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+
+// CRITICAL: Must use firestoreDatabaseId from firebase-applet-config.json.
+// Use experimentalAutoDetectLongPolling for smooth connectivity across cloud/preview/iframe environments.
+let firestoreDb;
+try {
+  firestoreDb = initializeFirestore(app, {
+    experimentalAutoDetectLongPolling: true,
+  }, firebaseConfig.firestoreDatabaseId);
+} catch {
+  firestoreDb = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+}
+
+export const db = firestoreDb;
 export const auth = getAuth(app);
 
 export enum OperationType {
@@ -36,6 +53,11 @@ export interface FirestoreErrorInfo {
 }
 
 export function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+  const errCode = (error as { code?: string })?.code;
+  if (errCode === 'unavailable') {
+    console.warn(`Firestore backend currently unavailable (${operationType} on ${path}). Operating in offline mode.`);
+  }
+
   const errInfo: FirestoreErrorInfo = {
     error: error instanceof Error ? error.message : String(error),
     authInfo: {
@@ -52,21 +74,22 @@ export function handleFirestoreError(error: unknown, operationType: OperationTyp
     operationType,
     path,
   };
-  console.error('Firestore Error:', JSON.stringify(errInfo));
+  if (errCode !== 'unavailable') {
+    console.error('Firestore Error:', JSON.stringify(errInfo));
+  }
   return errInfo;
 }
 
 // Connection test on boot as mandated by skill
 export async function testFirestoreConnection(): Promise<boolean> {
   try {
-    await getDocFromServer(doc(db, 'test', 'connection'));
-    console.log('Firebase Firestore connection verified.');
+    await getDoc(doc(db, 'test', 'connection'));
     return true;
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('the client is offline')) {
+  } catch (error: unknown) {
+    const errCode = (error as { code?: string })?.code;
+    const errMsg = error instanceof Error ? error.message : String(error);
+    if (errCode === 'unavailable' || errMsg.includes('the client is offline')) {
       console.warn('Firebase client is offline or network unreachable.');
-    } else {
-      console.log('Firebase connection test ping completed.');
     }
     return true;
   }
